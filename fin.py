@@ -6,6 +6,11 @@ load_dotenv()
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 USER_ID = os.getenv("USER_ID")
 
+print(ACCESS_TOKEN)
+print("/n")
+print(USER_ID)
+
+
 # LINE Messaging API 設定
 LINE_API_URL = "https://api.line.me/v2/bot/message/push"
 

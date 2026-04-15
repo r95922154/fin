@@ -7,7 +7,7 @@ import os
 load_dotenv()
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 USER_ID = os.getenv("USER_ID")
-var RATE =[];
+RATE =[]
 
 # =========================
 # 匯率

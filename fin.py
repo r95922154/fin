@@ -11,7 +11,7 @@ message = {
     "messages": [
         {
             "type": "text",
-            "text": "這是從 Python 發送到 LINE 的訊息！"
+            "text": "這是從發送到 LINE 的訊息！"
         }
     ]
 }

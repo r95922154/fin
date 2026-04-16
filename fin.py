@@ -122,7 +122,7 @@ def send_message_to_line():
 
     # 發送 POST 請求
     try:
-        response = requests.post(url, headers=headers, json=payload, timeout=10)
+        response = requests.post(url, headers=headers, json=payload, timeout=10,verify=False)
         print("LINE 發送成功:", response.text)
 
     except Exception as e:

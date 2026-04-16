@@ -1,5 +1,5 @@
 import requests
-import yfinance as yf
+#import yfinance as yf
 from datetime import datetime
 from dotenv import load_dotenv
 import os
@@ -103,12 +103,13 @@ def send_message_to_line():
     LINE_API_URL = "https://api.line.me/v2/bot/message/push"
 
     # 設定要發送的訊息內容
-    message = {
-        "to": USER_ID,
+    message = "\n".join(RATE)
+    payload = {
+        "to": TO_USER_ID,
         "messages": [
             {
                 "type": "text",
-                "text": "這是從發送到 LINE 的訊息！"
+                "text": message
             }
         ]
     }
@@ -120,14 +121,12 @@ def send_message_to_line():
     }
 
     # 發送 POST 請求
-    response = requests.post(LINE_API_URL, json=message, headers=headers, verify=False)
+    try:
+        response = requests.post(url, headers=headers, json=payload, timeout=10)
+        print("LINE 發送成功:", response.text)
 
-    # 顯示回應結果
-    if response.status_code == 200:
-        print("訊息發送成功！")
-    else:
-        print(f"發送失敗，錯誤代碼: {response.status_code}")
-        print(response.text)
+    except Exception as e:
+        print("LINE 發送失敗:", e)
 
 
 # =========================
@@ -138,7 +137,7 @@ def sendlist():
 
     get_exchange_rate()
     get_oil_price()
-    get_stock_data()
+    #get_stock_data()
 
     send_message_to_line()
 

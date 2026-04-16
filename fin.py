@@ -105,7 +105,7 @@ def send_message_to_line():
     # 設定要發送的訊息內容
     message = "\n".join(RATE)
     payload = {
-        "to": TO_USER_ID,
+        "to": USER_ID,
         "messages": [
             {
                 "type": "text",
